@@ -51,6 +51,7 @@ import { useState, useEffect, useRef } from 'react';
 import LoadingSpinner from './components/ui/LoadingSpinner';
 import React from 'react';
 import Link from "next/link";
+import Menu from './components/layout/Menu';
 
 const features = [
   {
@@ -358,9 +359,21 @@ const teamGrowthWithIncome = teamGrowth.map((row, idx) => {
 
 export default function Home() {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [rankIndex, setRankIndex] = useState(0);
   const [activeCategory, setActiveCategory] = useState('recharge');
+
+  useEffect(() => {
+    // Simulate loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   const handleGetStarted = () => {
     setIsLoading(true);
@@ -376,6 +389,10 @@ export default function Home() {
     <main className="min-h-screen bg-[#0A0A0A]">
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center justify-center">
+        {/* Menu Button in Hero Section */}
+        <div className="absolute top-4 right-4 md:top-8 md:right-8 z-50">
+          <Menu />
+        </div>
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -433,7 +450,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
               className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12"
             >
               <motion.div
