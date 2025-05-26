@@ -1,4 +1,4 @@
-// File: /Users/priyakanth/Desktop/NioLegendSystem/NioLegendSystem/src/app/pricing/page.tsx
+// File: /Users/priyakanth/Desktop/website Prem/website/NioLegendSystem/src/app/pricing/page.tsx
 import * as entry from '../../../../src/app/pricing/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

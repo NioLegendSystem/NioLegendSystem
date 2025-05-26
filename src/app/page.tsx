@@ -48,7 +48,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
-import LoadingSpinner from './components/LoadingSpinner';
+import LoadingSpinner from './components/ui/LoadingSpinner';
 import React from 'react';
 import Link from "next/link";
 
